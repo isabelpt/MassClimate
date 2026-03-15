@@ -20,7 +20,7 @@ export function createChapter() {
   function initMap() {
     mapInstance = L.map(mapDiv.node(), {
       scrollWheelZoom: false,
-      tap: false
+      tap: true
     }).setView([42.5, -73], 6);
 
 

@@ -7,6 +7,7 @@ export function createChapter() {
   let lastStepId = null; 
   let yearlyData = null; 
   let movingData = null; 
+  let tooltip;
   
   const margin = { top: 150, right: 100, bottom: 150, left: 100 };
   const colorPalette = {darkblue: "#05668D", medblue: "#427AA1", light: "#EBF2FA", green:"#679436", lime: "#A5BE00"}
@@ -106,6 +107,29 @@ export function createChapter() {
       .duration(2000)
       .ease(d3.easeLinear)
       .attr("stroke-dashoffset", 0);
+
+    g.selectAll(".yearly-dot")
+      .data(yearlyData)
+      .enter().append("circle")
+      .attr("class", "yearly-dot")
+      .attr("cx", d => xScale(d.Year))
+      .attr("cy", d => yScaleEP(d.Extreme))
+      .attr("r", 6) // Larger radius for easier hovering
+      .attr("fill", "transparent") 
+      .style("cursor", "pointer")
+      .on("mouseover", function(event, d) {
+        d3.select(this).attr("fill", "#4287f5").attr("opacity", 0.5); 
+        tooltip.style("visibility", "visible")
+          .html(`<strong>Year: ${d.Year}</strong><br/>Extreme Precip: ${d.Extreme.toFixed(2)} in`);
+      })
+      .on("mousemove", function(event) {
+        const [x, y] = d3.pointer(event, root.node());
+        tooltip.style("top", (y - 40) + "px").style("left", (x + 15) + "px");
+      })
+      .on("mouseout", function() {
+        d3.select(this).attr("fill", "transparent");
+        tooltip.style("visibility", "hidden");
+      });
   }
   
   function step02() {
@@ -129,7 +153,8 @@ export function createChapter() {
       .style("opacity", 0)
       .transition().duration(1000).style("opacity", 1);
 
-    g.selectAll(".sig-dot")
+
+    const sigDots = g.selectAll(".sig-dot")
       .data(movingData)
       .enter().append("circle")
       .attr("class", "sig-dot")
@@ -137,8 +162,34 @@ export function createChapter() {
       .attr("cy", d => yScaleEP(d.Extreme))
       .attr("r", 3.5)
       .attr("fill", d => d.sig === 1 ? "#d62728" : "#b8b8b8")
-      .attr("opacity", 0)
-      .transition()
+      .attr("opacity", 0);
+
+    // Add tooltips to the sig dots
+    sigDots.style("cursor", "pointer")
+      .on("mouseover", function(event, d) {
+        d3.select(this).transition().duration(100).attr("r", 6);
+        
+        const status = d.sig === 1 
+            ? "<span style='color:#d62728'>Significantly higher</span> than the baseline" 
+            : "Not significant";
+
+        tooltip.style("visibility", "visible")
+          .html(`
+            <strong>30-Year Average (${d.Year})</strong><br/>
+            Avg Precip: ${d.Extreme.toFixed(2)} in<br/>
+            ${status}
+          `);
+      })
+      .on("mousemove", function(event) {
+        const [x, y] = d3.pointer(event, root.node());
+        tooltip.style("top", (y - 40) + "px").style("left", (x + 15) + "px");
+      })
+      .on("mouseout", function() {
+        d3.select(this).transition().duration(100).attr("r", 3.5);
+        tooltip.style("visibility", "hidden");
+      });
+
+    sigDots.transition()
       .delay((d, i) => i * 15)
       .attr("opacity", 1);
   }
@@ -189,6 +240,19 @@ export function createChapter() {
 
     g = svg.append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    tooltip = root.append("div")
+        .attr("class", "chart-tooltip")
+        .style("position", "absolute")
+        .style("visibility", "hidden")
+        .style("background", "white")
+        .style("padding", "8px")
+        .style("border", "1px solid #ccc")
+        .style("border-radius", "4px")
+        .style("font-size", "12px")
+        .style("pointer-events", "none")
+        .style("z-index", "1000")
+        .style("box-shadow", "0 2px 5px rgba(0,0,0,0.1)");
 
     Promise.all([
         d3.csv("chapters/chapter_extreme/data/extreme_yearly.csv"),

@@ -7,12 +7,12 @@
       {
         "id": "c04-step-01",
         "label": "The local outlook.",
-        "text": "The projected increase in precipitation isn't uniform. Use the controls to explore how rain patterns will shift across the state over the next century."
+        "text": "The projected increase in precipitation isn't uniform. <br><i>Use the controls to explore how rain patterns will shift across the state over the next century.</i>"
       },
       {
         "id": "c04-step-02",
         "label": "The insurance gap.",
-        "text": "On average, 21% of residential land across Massachusetts sits within a 100- or 500-year FEMA flood zone. These maps dictate who is required to have insurance and who is told they are 'safe.' However, many of these boundaries rely on outdated data that fails to account for the modern surge in extreme rain."
+        "text": "On average, 21% of residential land across Massachusetts sits within a 100- or 500-year FEMA flood zone. These maps dictate who is required to have insurance and who is told they are 'safe.' However, many of these boundaries rely on outdated data that fails to account for the modern surge in extreme rain.<br><i>Toggle between 100- and 500- year flood maps to see what percent of each town resides in one of these.</i>"
       }
     ]
   }

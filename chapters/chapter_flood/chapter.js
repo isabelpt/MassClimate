@@ -78,7 +78,7 @@ export function createChapter() {
     d3.select("#grid-subtitle").text("5 out of 100 houses at risk annually (5% chance)");
 
     houses.transition().duration(800)
-        .attr("fill", (d, i) => i < 5 ? "#e74c3c" : "#e0e0e0") 
+        .attr("fill", (d, i) => i < 5 ? "#d62728" : "#e0e0e0") 
         .style("opacity", 1);
   }
 
@@ -99,7 +99,7 @@ export function createChapter() {
 
     houses.filter((d, i) => i < 20)
         .transition().duration(1000)
-        .attr("fill", (d, i) => i === 0 ? "#e74c3c" : "#e0e0e0");
+        .attr("fill", (d, i) => i === 0 ? "#d62728" : "#e0e0e0");
   }
 
   function step04() {
@@ -115,7 +115,7 @@ export function createChapter() {
 
       houses.transition().duration(800)
           .style("opacity", 1)
-          .attr("fill", (d, i) => i < 5 ? "#e74c3c" : "#e0e0e0");
+          .attr("fill", (d, i) => i < 5 ? "#d62728" : "#e0e0e0");
 
       // 4. Highlight the "Unprotected" Houses
       houses.filter((d, i) => i == 0)
@@ -171,7 +171,7 @@ function step08() {
 
   // float away
   house.transition()
-    .duration(6000) 
+    .duration(2500) 
     .ease(d3.easeQuadIn) 
     .attr("x", width + 500)
     .attr("y", -100)    

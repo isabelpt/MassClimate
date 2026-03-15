@@ -12,12 +12,12 @@
       {
         "id": "c02-step-02",
         "label": "Extreme precipitation thresholds are higher near the coast.",
-        "text": "Every station has a 99th percentile threshold, the amount of rain it takes for a storm to be considered extreme.  Near the coast, these thresholds appear higher, meaning these communities must withstand more intense precipitation events than those inland."
+        "text": "Every station has a 99th percentile threshold, the amount of rain it takes for a storm to be considered extreme.  Near the coast, these thresholds appear higher, meaning these communities must withstand more intense precipitation events than those inland. <br><i>Hover over the stations to see exact values.</i>"
       },
       {
         "id": "c02-step-03",
         "label": "Increase in extreme precipitation across the 1992 changepoint.",
-        "text": "Most stations experienced an increase in extreme precipitation after 1992. Some stations saw a nearly 125% increase, while few stations saw a decrease."
+        "text": "Most stations experienced an increase in extreme precipitation after 1992. Some stations saw a nearly 125% increase, while few stations saw a decrease. <br><i>Hover over the stations to see exact values.</i>"
       }
     ]
   }

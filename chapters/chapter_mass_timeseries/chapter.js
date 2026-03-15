@@ -9,6 +9,7 @@ export function createChapter() {
   const innerWidth = width - margin.left - margin.right;
   const innerHeight = height - margin.top - margin.bottom;
   let step02Drawn = false;
+  let tooltip;
 
   // Scales
   const xScale = d3.scaleLinear()
@@ -206,30 +207,39 @@ export function createChapter() {
       }
   
       // On hover
-      ribbon.on("mouseover", function() {
+      ribbon.on("mouseover", function(event) {
         g.selectAll(".ribbon").transition().duration(200).attr("opacity", 0.05);
         g.selectAll(".ribbon-mean").transition().duration(200).attr("opacity", 0.15);
         ribbon.transition().duration(200).attr("opacity", 0.45);
         centerline.transition().duration(200).attr("opacity", 1).attr("stroke-width", 4);
         pointsGroup.selectAll("circle").transition().duration(200).attr("r", 5).attr("opacity", 1);
+        
         renderHopPaths();
         hopInterval = setInterval(renderHopPaths, 130);
-  
-        stopTimeout = setTimeout(() => {
-          clearInterval(hopInterval);
-          hopsLayer.selectAll(".hop-path").transition().duration(1000).attr("opacity", 0.2);
-        }, 3000);
-  
-        const latest = medianRows[medianRows.length - 1];
+        
+        tooltip.style("visibility", "visible")
+            .html(`
+                <strong style="color:${colorScale(scenarioName)}">${scenarioName}</strong><br/>
+                Scenario Risk Level: ${scenarioName === 'SSP5-8.5' ? 'High' : scenarioName === 'SSP3-7.0' ? 'Medium-High' : 'Moderate'}<br/>
+                <small>90% Confidence Interval Shown</small>
+            `);
+      })
+      .on("mousemove", function(event) {
+        const [x, y] = d3.pointer(event, root.node());
+        tooltip.style("top", (y - 15) + "px")
+              .style("left", (x + 20) + "px");
       })
       .on("mouseout", function() {
         g.selectAll(".ribbon").transition().duration(200).attr("opacity", 0.3);
         g.selectAll(".ribbon-mean").transition().duration(200).attr("opacity", 0.85).attr("stroke-width", 2.5);
         pointsGroup.selectAll(".median-dot").transition().duration(200).attr("r", 3);
+        
         clearInterval(hopInterval);
         clearTimeout(stopTimeout);
         hopsLayer.selectAll(".hop-path").remove();
+        tooltip.style("visibility", "hidden");
       });
+
 
       const pointsGroup = g.append("g").attr("class", `points-${scenarioName}`);
 
@@ -274,6 +284,19 @@ export function createChapter() {
 
     g = svg.append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    tooltip = root.append("div")
+        .attr("class", "chart-tooltip")
+        .style("position", "absolute")
+        .style("visibility", "hidden")
+        .style("background", "rgba(255, 255, 255, 0.95)")
+        .style("padding", "10px")
+        .style("border", "1px solid #ddd")
+        .style("border-radius", "4px")
+        .style("font-size", "12px")
+        .style("pointer-events", "none")
+        .style("z-index", "1002")
+        .style("box-shadow", "0 4px 10px rgba(0,0,0,0.1)");    
 
     Promise.all([
         d3.csv("chapters/chapter_mass_timeseries/data/timeseries.csv")
