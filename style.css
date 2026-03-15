@@ -1,0 +1,286 @@
+:root{
+    --bg: #f0efeb;
+    --ink: #1e232b;
+    --muted: #5b6675;
+    --card: #f0efeb;
+    --border: rgba(30,35,43,0.12);
+    --shadow: 0 12px 35px rgba(20, 20, 20, 0.10);
+    --maxw: 980px;
+    --readw: 30vw;
+    --darkblue: #05668D;
+    --medblue: #427AA1;
+    --green: #679436;
+    --lime: #A5BE00;
+    --light: #EBF2FA;
+  }
+  
+  body{
+    margin: 0;
+    background: #e3e2de;
+    color: var(--ink);
+    line-height: 1.75;
+    font-family: "Radio Canada", sans-serif;
+  }
+  
+  .site-header{
+    max-width: var(--maxw);
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    padding-top: 30px;
+    background-color: #e3e2de;
+  }
+
+  #hero {
+    background-color: #e3e2de;
+  }
+  
+  .site-header h1{
+    margin: 0 0 0px 0;
+    font-size: 57px;
+    letter-spacing: 0.2px;
+    font-family: "Playfair Display", serif;
+    font-style: bold;
+    padding-bottom: 0;
+  }
+
+  .hero-subtitle {
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    font-family: "Radio Canada", sans-serif;
+    color: var(--darkblue);
+  }
+
+  h2 {
+    font-family: "Playfair Display", serif;
+  }
+  
+  .subtitle{
+    margin: 0 auto;
+    max-width: var(--readw);
+    color: var(--muted);
+    font-size: 16px;
+  }
+  
+  .chapter{
+    position: relative;
+    min-height: 150vh;
+    padding: 0 0 0 0; /* runway */
+  }
+  
+  
+  .chapter-vis{
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 68vw;
+    margin-left: 32vw;
+    z-index: 1;
+    overflow: hidden;
+    background: var(--bg);
+  }
+
+  .chapter.is-map .chapter-vis {
+    width: 100vw !important;
+    margin-left: 0 !important;
+}
+  
+  .vis-mount{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .chapter-overlay{
+    position: relative;
+    z-index: 3;
+    pointer-events: none;
+    margin-top: -100vh;
+    padding-bottom: 120vh;
+  }
+
+  .chapter .step:last-child {
+    min-height: 35vh;
+    margin-bottom: 0;
+  }
+  
+  
+  .step{
+    width: min(var(--readw), calc(100vw - 40px));
+    margin-left: 1vw;
+    margin-right: auto;
+    margin-top: 50vh;
+    margin-bottom: 60vh;
+    pointer-events: none;
+  }
+  
+  .step-card{
+    pointer-events: auto;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    padding: 20px 20px;
+    box-shadow: var(--shadow);
+  }
+  
+  .step.is-active .step-card{
+    border-color: rgba(30,35,43,0.22);
+  }
+
+  .step-card h3{
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    font-family: "Josefin Sans", sans-serif;
+  }
+  
+  .step-card p{
+    white-space: pre-line; /* to allow \n breaks */
+    margin: 0;
+    color: var(--muted);
+    font-size: 15.5px;
+  }
+  
+  .figure-caption{
+    max-width: var(--readw);
+    margin: 10px auto 0 auto;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .figure-caption strong{
+    color: var(--ink);
+  }
+  
+/* Sidebar Setup */
+.water-sidebar {
+  position: fixed;
+  top: 0;
+  width: 32vw;
+  height: 100vh;
+  z-index: 1;
+  background-color: #e3e2de;
+}
+
+
+
+.left .right { left: 0; }
+/* .right { right: 0; } */
+
+.water-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0%;
+  background: #05668dd3; 
+  opacity: 1;
+  transition: height 0.4s ease-out;
+  overflow: visible;
+}
+
+/* The Wave SVG */
+.waves {
+  position: absolute;
+  top: -30px; 
+  left: 0;
+  width: 100%;
+  height: 30px;
+}
+
+.single-wave > use {
+  animation: move-wave 10s cubic-bezier(.55, .5, .45, .5) infinite;
+}
+
+.right .single-wave > use {
+  animation-duration: 15s; 
+  animation-delay: -3s; 
+}
+
+.end {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.final-step {
+  width: min(80vw, 1000px) !important; 
+  margin: 0 auto !important;           
+}
+
+.step-card.final-statement {
+  max-width: 900px;           
+  width: 100%;                
+  padding: 30px 40px;       
+  position: relative;
+  z-index: 1000;
+  font-family: "Playfair Display", "serif";
+}
+
+.step-card.final-statement p {
+  font-size: 2.2rem;         
+  color: var(--ink);        
+  line-height: 1.4;
+}
+
+
+.final-statement.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.data-sources {
+  position: absolute; 
+  bottom: 20px;       
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  z-index: 10011;
+  pointer-events: auto; 
+}
+
+.data-sources a {
+  color: white;
+  margin-top: 5px;
+  display: block;
+  text-decoration: underline;
+}
+
+@keyframes move-wave {
+  0% { transform: translate3d(-90px, 0, 0); }
+  100% { transform: translate3d(85px, 0, 0); }
+}
+
+/* Expansion class for Chapter 5 finale */
+.water-flooding {
+  width: 100vw !important;
+  opacity: 0.75 !important;
+  background: none;
+}
+
+/* Hide water for map-focused steps */
+.water-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.water-sidebar:not(.water-hidden) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.viz-tooltip {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  font-family: sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0;
+  z-index: 10000;
+  transition: opacity 0.2s;
+}

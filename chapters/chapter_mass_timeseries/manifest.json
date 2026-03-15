@@ -1,0 +1,18 @@
+{
+    "id": "chapter_mass_timeseries",
+    "title": "Massachusetts Timeseries",
+    "namespace": "c03",
+    "order": 3,                    
+    "steps": [
+      {
+        "id": "c03-step-01",
+        "label": "Let's focus on Massachusetts.",
+        "text": "When we zoom in, the data becomes personal."
+      },
+      {
+        "id": "c03-step-02",
+        "label": "Three paths, one conclusion.",
+        "text": "The Shared Socioeconomic Pathways (SSPs) represent different climate change mitgation and adaptation scenarios. The figure shows models run to simulate three SSPs.\n<b>SSP2:</b> Medium challenges to mitigation and adaptation\n<b>SSP3:</b> High challenges to mitigation and adaptation\n<b>SSP5:</b> High challenges to mitigation, low challenges to adaptation <br>Regardless of the path we take, the trend is clear: Massachusetts is heading toward a wetter, more saturated future."
+      }
+    ]
+  }

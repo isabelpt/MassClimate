@@ -1,0 +1,23 @@
+{
+    "id": "chapter_extreme",
+    "title": "Northeast EP Historical & Trends",
+    "namespace": "c01",
+    "order": 1,                    
+    "steps": [
+      {
+        "id": "c01-step-01",
+        "label": "The heaviest downpours are getting heavier.",
+        "text": "Climate scientists define 'extreme precipitation' as the top 1% of rain events, the kind of storms that catch us off guard. While weather varies from year to year, the average amount of water falling during these events has been steadily climbing."
+      },
+      {
+        "id": "c01-step-02",
+        "label": "Tuning out the noise.",
+        "text": "Weather is messy, but climate is a trend. To see through the yearly 'noise,' we compare 30-year averages against a baseline from the early 1900s. This helps us identify when the rain stopped being just 'heavy weather' and started being a new, measurable reality."
+      },
+      {
+        "id": "c01-step-03",
+        "label": "1992 marks this increase in extreme precipitation.",
+        "text": "The 30-year mean centered on 1992 is significantly greater than the baseline, marking the start of a new, wetter era for the Northeast."
+      }
+    ]
+  }

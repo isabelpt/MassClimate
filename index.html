@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Final Project</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Radio+Canada:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+
+</head>
+<body class="debug-layout">
+<section id="hero-root"></section>
+<main id="scrolly-root"></main>
+
+  <main id="scrolly-root"></main>
+  <div class="water-sidebar left">
+    <div class="water-fill">
+      <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-25 88-25s 58 25 88 25 58-25 88-25 58 25 88 25 v44h-352z" />
+        </defs>
+        <g class="single-wave">
+          <use href="#gentle-wave" x="48" y="7" fill="#05668dd3" />
+        </g>
+      </svg>
+    </div>
+  </div>
+  
+  <div class="water-sidebar right">
+    <div class="water-fill">
+      <svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none">
+        <g class="single-wave">
+          <use href="#gentle-wave" x="48" y="7" fill="#05668dd3" />
+        </g>
+      </svg>
+    </div>
+  </div>
+<!-- The script type below has to be 'module'.
+ This allows us to build 
+  -->
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>

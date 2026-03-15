@@ -1,0 +1,48 @@
+{
+    "id": "chapter_flood",
+    "title": "Flooding",
+    "namespace": "c05",
+    "order": 5,                    
+    "steps": [
+      {
+        "id": "c05-step-01",
+        "label": "It's estimated that 75% of FEMA flood maps are out of date.",
+        "text": "Some even still run on data from the 1970s. This means that many people who live in a floodzone don't even know. And in Massachusetts, homeowners aren't required to disclose previous flood damage."
+      },
+      {
+        "id": "c05-step-02",
+        "label": "Outdated floodmaps don't reflect current risk.",
+        "text": "In many areas of the Northeast, homes with a 1% yearly chance of flooding in the 1970s, now have a 5% chance."
+      },
+      {
+        "id": "c05-step-03",
+        "label": "Floods are becoming more and more frequent.",
+        "text": "A flood that your grandparents witnessed once in their lifetime, you and your children may witness four or five times."
+      },
+      {
+        "id": "c05-step-04",
+        "label": "Outdated FEMA flood maps exacerbate the effects of flooding on communities.",
+        "text": "Nearly half of all flood damage occurs outside of these flood maps, leaving millions uninsured and unprotected."
+      },
+      {
+        "id": "c05-step-05",
+        "label": "The basement floods.",
+        "text": "The water enters silently. It destroys the furnace, the hot water heater, and the electrical panel. The home faces a $15,000 repair bill."
+      },
+      {
+        "id": "c05-step-06",
+        "label": "The first floor floods.",
+        "text": "The stakes change as the water reaches the living area. Furniture is ruined, memories are soaked, and families are displaced into temporary housing."
+      },
+      {
+        "id": "c05-step-07",
+        "label": "The water keeps rising.",
+        "text": "The water damages the foundation. If the house doesn't have flood insurance, the damage often exceeds the value of the property."
+      },
+      {
+        "id": "c05-step-08",
+        "label": "The house is gone.",
+        "text": "When the storm is gone, communities face the destruction. Neighborhoods are hollowed-out and re-built with the realization that we can no longer build for the past—we must build for the water"
+      }
+    ]
+  }
